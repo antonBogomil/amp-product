@@ -16,6 +16,7 @@
             ]
         }
     </script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
@@ -120,9 +121,24 @@
             top: 0;
             display: none;
             padding-top: 50px;
+            background: white;
+            z-index: 99;
         }
         .modal.open{
             display: block;
+        }
+        main{
+            margin-top: 50px;
+            padding: 0 10px;
+        }
+        .product-header{
+            display: flex;
+            vertical-align: bottom;
+            align-items: center;
+        }
+        .brand{
+            padding-right: 15px;
+            padding-left: 15px;
         }
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
@@ -149,7 +165,26 @@
 
 
 
-
+<main class="container">
+    <section class="product-header">
+        <div class="brand">
+           <amp-img width="60" height="60" src="https://images.icecat.biz/img/brand/thumb/26_26688cbbc3dc4b44ad65b30451e8ac80.jpg"></amp-img>
+        </div>
+        <div class="title">
+            <h2>Samsung Galaxy SM-A405F 15 cm (5.9") 4 GB 64 GB Dual SIM Black 3100 mAh</h2>
+        </div>
+    </section>
+    <section class="product-images">
+        <amp-carousel height="300" width="300" layout="responsive" type="slides" >
+            <amp-img src="https://images.icecat.biz/img/gallery/70101852_4997772176.jpg" width="400" height="300" alt="and another sample image"></amp-img>
+            <amp-img src="https://images.icecat.biz/img/gallery/70101852_5284589672.jpg" width="400" height="300" alt="and another sample image"></amp-img>
+            <amp-img src="https://images.icecat.biz/img/gallery_mediums/70101852_4997772176.jpg" width="400" height="300" alt="and another sample image"></amp-img>
+            <amp-img src="https://images.icecat.biz/img/gallery_lows/70101852_2032425687.jpg" width="400" height="300" alt="a sample image"></amp-img>
+            <amp-img src="https://images.icecat.biz/img/gallery_mediums/70101852_2032425687.jpg" width="400" height="300" alt="another sample image"></amp-img>
+            <amp-img src="https://images.icecat.biz/img/gallery_mediums/70101852_4997772176.jpg" width="400" height="300" alt="and another sample image"></amp-img>
+        </amp-carousel>
+    </section>
+</main>
 
 
 
@@ -204,8 +239,6 @@
         <li class="menu-item">© icecat</li>
     </ul>
 </div>
-
-
 <amp-lightbox id="location" layout="nodisplay">
     <button on="tap:quote-lb.close">Ok</button>
 </amp-lightbox>
