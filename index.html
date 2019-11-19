@@ -17,20 +17,99 @@
         }
     </script>
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
-    <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <script async custom-element="amp-social-share"
+            src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <style amp-boilerplate>body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both
+    }
+
+    @-webkit-keyframes -amp-start {
+        from {
+            visibility: hidden
+        }
+        to {
+            visibility: visible
+        }
+    }
+
+    @-moz-keyframes -amp-start {
+        from {
+            visibility: hidden
+        }
+        to {
+            visibility: visible
+        }
+    }
+
+    @-ms-keyframes -amp-start {
+        from {
+            visibility: hidden
+        }
+        to {
+            visibility: visible
+        }
+    }
+
+    @-o-keyframes -amp-start {
+        from {
+            visibility: hidden
+        }
+        to {
+            visibility: visible
+        }
+    }
+
+    @keyframes -amp-start {
+        from {
+            visibility: hidden
+        }
+        to {
+            visibility: visible
+        }
+    }</style>
+    <noscript>
+        <style amp-boilerplate>body {
+            -webkit-animation: none;
+            -moz-animation: none;
+            -ms-animation: none;
+            animation: none
+        }</style>
+    </noscript>
     <style amp-custom>
-        *{
-            font-family: Arial, Helvetica,Sans-serif,serif;
-            font-size: 12px;
+        * {
+            font-family: Arial, Helvetica, Sans-serif, serif;
+            font-size: 14px;
+
         }
-        a{
+
+        a {
             text-decoration: none;
+            color: #254099;
+            font-size: 14px;
         }
-        .header{
+
+        .lightbox {
+            background: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox h1 {
+            color: white;
+        }
+
+        .header {
             display: flex;
             position: fixed;
             flex-direction: row;
@@ -42,21 +121,26 @@
             z-index: 300;
             padding: 4px 0;
         }
-        .header-center{
+
+        .header-center {
             width: 64%;
         }
-        .form_search{
+
+        .form_search {
             margin: auto;
         }
-        .header-left,.header-right{
+
+        .header-left, .header-right {
             width: 22%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .search_label{
+
+        .search_label {
             position: relative;
         }
+
         .search_input {
             display: inline-block;
             width: 100%;
@@ -65,13 +149,15 @@
             height: 35px;
             box-sizing: border-box;
         }
-        .icon-header{
+
+        .icon-header {
             width: 20px;
             height: 20px;
             display: inline-block;
             background-repeat: no-repeat;
             background-image: url("sprites.png");
         }
+
         .icon-header_search {
             left: 8px;
             top: 0;
@@ -85,18 +171,22 @@
             position: absolute;
             background-position: -75px -10px;
         }
+
         .icon-header_menu {
             background-position: -10px -12px;
         }
-        .icon-header_home{
+
+        .icon-header_home {
             background-position: -8px -34px;
         }
-        .menu{
+
+        .menu {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        .menu-item{
+
+        .menu-item {
             display: block;
             clear: both;
             text-align: left;
@@ -105,14 +195,17 @@
             padding-top: 5px;
             color: #000;
         }
-        .menu-item a{
+
+        .menu-item a {
             line-height: 17px;
             color: #000;
         }
-        .menu-item_separeted{
+
+        .menu-item_separeted {
             border-top: 1px solid #b3b3b3;
         }
-        .modal{
+
+        .modal {
             position: fixed;
             width: 100%;
             left: 0;
@@ -124,32 +217,187 @@
             background: white;
             z-index: 99;
         }
-        .modal.open{
+
+        .modal.open {
             display: block;
         }
-        main{
+
+        main {
             margin-top: 50px;
             padding: 0 10px;
         }
-        .product-header{
+
+        .product-header {
             display: flex;
             vertical-align: bottom;
             align-items: center;
         }
-        .brand{
+
+        .brand {
             padding-right: 15px;
             padding-left: 15px;
+        }
+
+        .product-images {
+            max-height: 400px;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .btn {
+            outline: none;
+            display: inline-block;
+            color: black;
+            text-align: center;
+            font-weight: bold;
+            padding: 6px 15px;
+            border-radius: 7px;
+            white-space: nowrap;
+            font-size: 13px;
+            margin: auto;
+        }
+
+        .btn_yellow {
+            background: linear-gradient(to bottom, #fdde9f 0, #fdde9f 50%, #ffcb6c 51%, #fec357 100%), orange;
+            border: 2px solid #FBB34E;
+        }
+
+        .container-btn {
+            height: 30px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .description-item {
+            margin-top: 6px;
+            line-height: 20px;
+        }
+
+        .description-item .i-title {
+            font-weight: bold;
+            border-bottom: 1px dashed black;
+        }
+
+        .media-pdf {
+            position: relative;
+            padding: 10px 24px 10px;
+            display: inline-block;
+        }
+
+        .media-pdf:before {
+            background: url("sprites2.png") no-repeat -30px -30px;
+            position: absolute;
+            content: '';
+            display: inline-block;
+            left: 0;
+            width: 20px;
+            height: 20px;
+        }
+
+        .long-wrapper {
+            position: relative;
+            max-height: 200px;
+            overflow: hidden;
+        }
+
+        .long-wrapper.open {
+            max-height: none;
+        }
+
+        .layer {
+            position: absolute;
+            background-color: white;
+            opacity: 0.7;
+            height: 6em;
+            width: 100%;
+            left: 0;
+            bottom: 4em;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .long-wrapper-bottom {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 4em;
+            width: 100%;
+            text-align: right;
+            background: white;
+        }
+
+        .long-wrapper-btn {
+            display: none;
+            cursor: pointer;
+            font-weight: 700;
+            padding: 12px 0;
+        }
+
+        .long-wrapper-btn.open {
+            display: block;
+        }
+
+        .form {
+            position: relative;
+            margin: 10% auto;
+            padding: 5px 20px 13px;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .form label {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .form label span {
+            display: block;
+        }
+
+        .form input {
+            height: 25px;
+            border: 3px solid #e4e7f4;
+            width: 100%;
+            max-width: 350px;
+            display: block;
+            margin: 3px 0 15px;
+            padding: 0 5px;
+            font-weight: 400;
+            font-size: 13px;
+            width: 100%;
+        }
+
+        fieldset {
+            border: none;
+        }
+
+        #form-report {
+            width: 300px;
         }
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 </head>
 <body>
+<amp-state id="props">
+    <script type="application/json">
+        {
+            "moreOpen": false,
+            "menuOpen": false
+        }
+    </script>
+</amp-state>
 <header class="header">
     <div class="header-left">
         <span on="tap:location" tabindex="0" role="button" class="icon-header icon-header_home"></span>
     </div>
     <div class="header-center">
-        <form  action-xhr="/amp/menu/location-change" method="post" class="form_search">
+        <form action-xhr="/amp/menu/location-change" method="post" class="form_search">
             <label class="search_label">
                 <i class="icon-header icon-header_search"></i>
                 <input class="search_input"/>
@@ -158,65 +406,192 @@
         </form>
     </div>
     <div class="header-right">
-        <span class="icon-header icon-header_menu" role="button" tabindex="1" on="tap:AMP.setState({menuOpen: !menuOpen})">
+        <span class="icon-header icon-header_menu" role="button" tabindex="1"
+              on="tap:AMP.setState({menuOpen: !menuOpen})">
         </span>
     </div>
 </header>
 
 
-
 <main class="container">
     <section class="product-header">
         <div class="brand">
-           <amp-img width="60" height="60" src="https://images.icecat.biz/img/brand/thumb/26_26688cbbc3dc4b44ad65b30451e8ac80.jpg"></amp-img>
+            <amp-img width="60" height="60"
+                     src="https://images.icecat.biz/img/brand/thumb/26_26688cbbc3dc4b44ad65b30451e8ac80.jpg"></amp-img>
         </div>
         <div class="title">
             <h2>Samsung Galaxy SM-A405F 15 cm (5.9") 4 GB 64 GB Dual SIM Black 3100 mAh</h2>
         </div>
     </section>
     <section class="product-images">
-        <amp-carousel height="300" width="300" layout="responsive" type="slides" >
-            <amp-img src="https://images.icecat.biz/img/gallery/70101852_4997772176.jpg" width="400" height="300" alt="and another sample image"></amp-img>
-            <amp-img src="https://images.icecat.biz/img/gallery/70101852_5284589672.jpg" width="400" height="300" alt="and another sample image"></amp-img>
-            <amp-img src="https://images.icecat.biz/img/gallery_mediums/70101852_4997772176.jpg" width="400" height="300" alt="and another sample image"></amp-img>
-            <amp-img src="https://images.icecat.biz/img/gallery_lows/70101852_2032425687.jpg" width="400" height="300" alt="a sample image"></amp-img>
-            <amp-img src="https://images.icecat.biz/img/gallery_mediums/70101852_2032425687.jpg" width="400" height="300" alt="another sample image"></amp-img>
-            <amp-img src="https://images.icecat.biz/img/gallery_mediums/70101852_4997772176.jpg" width="400" height="300" alt="and another sample image"></amp-img>
+        <amp-carousel height="300" width="300" layout="responsive" type="slides">
+            <amp-img src="https://images.icecat.biz/img/gallery/70101852_4997772176.jpg" width="400" height="300"
+                     alt="and another sample image"></amp-img>
+            <amp-img src="https://images.icecat.biz/img/gallery/70101852_5284589672.jpg" width="400" height="300"
+                     alt="and another sample image"></amp-img>
+            <amp-img src="https://images.icecat.biz/img/gallery_mediums/70101852_4997772176.jpg" width="400"
+                     height="300" alt="and another sample image"></amp-img>
+            <amp-img src="https://images.icecat.biz/img/gallery_lows/70101852_2032425687.jpg" width="400" height="300"
+                     alt="a sample image"></amp-img>
+            <amp-img src="https://images.icecat.biz/img/gallery_mediums/70101852_2032425687.jpg" width="400"
+                     height="300" alt="another sample image"></amp-img>
+            <amp-img src="https://images.icecat.biz/img/gallery_mediums/70101852_4997772176.jpg" width="400"
+                     height="300" alt="and another sample image"></amp-img>
         </amp-carousel>
+    </section>
+    <section class="product-info">
+        <div class="container-btn left">
+            <a href="/search?productId=24417380">Search similar products</a>
+        </div>
+        <div class="container-btn center">
+            <a class="btn btn_yellow" target="_blank" href="https://bo.icecat.biz">Edit this data-sheet</a>
+        </div>
+        <div class="description">
+            <div class="description-item">
+                <span class="i-title">Brand</span>
+                <span>:</span>
+                <a rel="nofollow" href="/en/search?supplierLocalName=Philips">Philips</a>
+            </div>
+            <div class="description-item">
+                <span class="i-title">Product family</span>
+                <span>:</span>
+                <a rel="nofollow" href="/en/search?familyId=65331">7900 series</a>
+            </div>
+            <div class="description-item">
+                <span class="i-title">Product name</span>
+                <span>:</span>
+                <a rel="nofollow" href="/en/search?keyword=49pus7909%2F12">49PUS7909/12</a>
+            </div>
+            <div class="description-item">
+                <span class="i-title">Product code</span>
+                <span>:</span>
+                <a rel="nofollow" href="/en/search?familyId=65331">49PUS7909/12</a>
+            </div>
+            <div class="description-item">
+                <span class="i-title">EAN/UPC code</span>
+                <span>:</span>
+                <a rel="nofollow" href="/en/search?familyId=65331">8712581726706</a>
+            </div>
+            <div class="description-item">
+                <span class="i-title">Category</span>
+                <span>:</span>
+                <a rel="nofollow" href="/en/search?familyId=65331">TVs</a>
+            </div>
+            <div class="description-item">
+                <span class="i-title">Data-sheet quality</span>
+                <span>:</span>
+                <span>
+                    created/standardized by Icecat
+                </span>
+            </div>
+            <div class="description-item">
+                <span class="i-title">Product views</span>
+                <span>:</span>
+                <span>
+                    138189
+                </span>
+            </div>
+            <div class="description-item">
+                <span class="i-title">Info modified on</span>
+                <span>:</span>
+                <span>
+                    01 Jul 2019 17:03:58
+                </span>
+            </div>
+            <div class="description-item">
+                <a class="media media-pdf" target="_blank"
+                   href="http://objects.icecat.biz/objects/mmo_24417380_1540334904_7842_1312.pdf">
+                    EU Energy Label
+                    (0,1MB)
+                </a>
+            </div>
+
+
+        </div>
+        <div class="description-long">
+            <div class="description-item">
+                <span class="i-title">Long product name Philips 7900 series 49PUS7909/12 TV 124.5 cm (49") 4K Ultra HD 3D Smart TV Wi-Fi Black</span>
+                <span>:</span>
+                <span>
+                    124.46 cm (49") 4K UHD TV, 16:9, 3D, 400 cd/m2, USB, HDMI, RJ-45
+                </span>
+            </div>
+            <div class="long-wrapper" [class]="moreOpen ? 'long-wrapper open' : 'long-wrapper'">
+                <div>
+                    <div class="description-item">
+                        <span class="i-title">Philips 7900 series 49PUS7909/12 TV 124.5 cm (49") 4K Ultra HD 3D Smart TV Wi-Fi Black</span>
+                        <span>:</span>
+                        <span>
+                        <b>Ultra Slim 4K UHD LED TV powered by Android</b><br>
+                        <b>With Ambilight 2-sided</b><br>
+                        Ultra HD meets the power of Android: the Philips 7900 series Ultra HD TV. Thanks to razor fast Quad Core processing, navigating through your Smart TV is a breeze. Ambilight plus a bezelless design further intensify your viewing experience.<br>
+                        <br>
+                        <b>Light up your life. Love it. Live it.</b><br>
+                        - Ambilight changes the way you look at TV forever<br>
+                        <br>
+                        <b>A TV that’s more than Smart, it’s beautiful</b><br>
+                        - Frameless design: no bezel means more TV to love<br>
+                        - Finishing touches: a TV that looks as great as it performs<br>
+                        - Ultra Slim lines for a refined profile<br>
+                        <br>
+                        <b>A picture so real, you’ll forget it’s TV</b><br>
+                        - 4K Ultra HD: resolution like you’ve never seen it before<br>
+                        - Pixel Precise Ultra HD: discover vivid Picture Quality<br>
+                        - 600Hz PMR Ultra HD for flawless moving images<br>
+                        <br>
+                        <b>Entertainment at the speed of light</b><br>
+                        - Google PlayTM store—the world at your fingertips<br>
+                        - Twin Tuner lets you watch or record more than one program<br>
+                        - Smart remote lets you point, type or talk to your TV<br>
+                        - From apps to Cloud TV: more online entertainment than ever
+                    </span>
+                    </div>
+                    <div class="description-item">
+                        <span class="i-title">Short summary description Philips 7900 series 49PUS7909/12 TV 124.5 cm (49") 4K Ultra HD 3D Smart TV Wi-Fi Black</span>
+                        <span>:</span>
+                        <span>
+                    124.46 cm (49") 4K UHD TV, 16:9, 3D, 400 cd/m2, USB, HDMI, RJ-45
+                </span>
+                    </div>
+                    <div class="description-item">
+                        <span class="i-title">Long summary description Philips 7900 series 49PUS7909/12 TV 124.5 cm (49") 4K Ultra HD 3D Smart TV Wi-Fi Black:</span>
+                        <span>:</span>
+                        <span>
+                            Philips 7900 series 49PUS7909/12. Display diagonal: 124.5 cm (49"), Display resolution: 3840 x 2160 pixels, HD type:
+                            4K Ultra HD, Screen shape: Flat, 3D. Smart TV. Motion interpolation technology: PMR (Perfect Motion Rate) 600 Hz,
+                            Display brightness: 400 cd/m², Aspect ratio: 16:9. Digital signal format system: DVB-C,DVB-S,DVB-S2,DVB-T,DVB-T2.
+                            Wi-Fi, Ethernet LAN. Weight: 17.8 kg. Product colour: Black
+                        </span>
+                    </div>
+                </div>
+                <div class="layer" [class]="moreOpen ? 'layer hide' : 'layer'"></div>
+                <div class="long-wrapper-bottom">
+                    <a tabindex="1" class="long-wrapper-btn open"
+                       [class]="moreOpen ? 'long-wrapper-btn' : 'long-wrapper-btn open'" role="button"
+                       on="tap:AMP.setState({moreOpen: true})">More>>></a>
+                    <a tabindex="1" class="long-wrapper-btn"
+                       [class]="moreOpen ? 'long-wrapper-btn open' : 'long-wrapper-btn'" role="button"
+                       on="tap:AMP.setState({moreOpen: false})"> &lt;&lt;&lt; Less </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="product-embed">
+
+        <a role="button" tabindex="10" on="tap:reportMistake.open">Report</a>
     </section>
 </main>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!--  MENU   >-->
 <div class="modal" id="modal-menu" [class]="menuOpen ? 'modal open' : 'modal'">
-    <ul class="menu" >
+    <ul class="menu">
         <li class="menu-item"><a href="/en/authorization">Login</a></li>
         <li class="menu-item"><a href="/en/registration">Register as new user (<b>free</b>)</a></li>
         <li class="menu-item "><a href="/en/#catalog">Product content by catalog</a></li>
         <li class="menu-item menu-item_separeted"><a href="http://www.iceclog.com">News &amp; manuals (Iceclog)</a></li>
-        <li class="menu-item menu-item_separeted"><a href="/en/menu/channelpartners/index.html">Channel partners</a></li>
+        <li class="menu-item menu-item_separeted"><a href="/en/menu/channelpartners/index.html">Channel partners</a>
+        </li>
         <li class="menu-item"><a href="/en/menu/manufacturers/index.html">Manufacturers</a></li>
         <li class="menu-item"><a href="/en/menu/partners/index.html">Sponsors</a></li>
         <li class="menu-item"><a href="/en/authorization">Download the <b>free</b> data-sheets</a></li>
@@ -229,9 +604,9 @@
                 <amp-social-share type="twitter"></amp-social-share>
                 <amp-social-share type="facebook" data-param-app_id="254325784911610"></amp-social-share>
                 <amp-social-share type="linkedin"></amp-social-share>
-<!--                <a href="https://www.youtube.com/channel/UCRUJeX0Gxdn4gRmeQeaC2Bg" title="Youtube">-->
-<!--                    <img id="YoutubeImg" alt="Youtube" src="https://ws.sharethis.com/images/youtube_16.png">-->
-<!--                </a>-->
+                <!--                <a href="https://www.youtube.com/channel/UCRUJeX0Gxdn4gRmeQeaC2Bg" title="Youtube">-->
+                <!--                    <img id="YoutubeImg" alt="Youtube" src="https://ws.sharethis.com/images/youtube_16.png">-->
+                <!--                </a>-->
             </div>
         </li>
         <li class="menu-item menu-item_separeted"><a href="/en/menu/disclaimer/index.html">Disclaimer</a></li>
@@ -239,8 +614,59 @@
         <li class="menu-item">© icecat</li>
     </ul>
 </div>
+<!--   END  -->
+
+<!-- AMP Modals   >-->
+
 <amp-lightbox id="location" layout="nodisplay">
-    <button on="tap:quote-lb.close">Ok</button>
+    <div class="lightbox">
+        <button on="tap:location.close">Ok</button>
+    </div>
 </amp-lightbox>
+<amp-lightbox id="reportMistake" layout="nodisplay">
+    <div class="lightbox">
+        <form class="form form-report" id="form-report" method="post"
+              action-xhr="https://fo-dev-05.icecat.us/en/product-feedback-yii2/post"
+              target="_blank">
+            <fieldset>
+                <label>
+                    <span>Name:*</span>
+                    <input type="text"
+                           name="name"
+                           required
+                    >
+                </label>
+                <label>
+                    <span>Organization:</span>
+                    <input type="text" name="company" value="">
+                    <input type="hidden" name="supplierId" value="25">
+                </label>
+                <label>
+                    <span>Your email address:*</span>
+                    <input type="email" name="email" required value="">
+                </label>
+                <label>
+                    <span>Mistake in:*</span>
+                    <select name="type" required="">
+                        <option>
+                        </option>
+                        <option value="text">marketing text
+                        </option>
+                        <option value="link">link
+                        </option>
+                        <option value="specification">specification
+                        </option>
+                        <option value="image">Image
+                        </option>
+                        <option value="other">other
+                        </option>
+                    </select>
+                </label>
+                <button>Report</button>
+            </fieldset>
+        </form>
+    </div>
+</amp-lightbox>
+<!--  END  >-->
 </body>
 </html>
