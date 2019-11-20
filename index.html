@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Product page, AMPs</title>
+    <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon">
     <link rel="canonical" href="https://amp.dev/ru/documentation/guides-and-tutorials/start/create/basic_markup/">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <script type="application/ld+json">
@@ -84,16 +85,14 @@
         }</style>
     </noscript>
     <style amp-custom>
-        * {
+        body {
             font-family: Arial, Helvetica, Sans-serif, serif;
             font-size: 14px;
-
         }
 
         a {
             text-decoration: none;
             color: #254099;
-            font-size: 14px;
         }
 
         .lightbox {
@@ -104,10 +103,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .lightbox h1 {
-            color: white;
         }
 
         .header {
@@ -122,9 +117,11 @@
             z-index: 300;
             padding: 4px 0;
         }
-
+        h2{
+            font-size: 14px;
+        }
         .header-center {
-            width: 64%;
+            width: 66%;
         }
 
         .form_search {
@@ -179,6 +176,10 @@
 
         .icon-header_home {
             background-position: -8px -34px;
+        }
+
+        .product-info {
+            text-align: left;
         }
 
         .menu {
@@ -297,12 +298,14 @@
             width: 20px;
             height: 20px;
         }
-        .triangle-icon{
+
+        .triangle-icon {
             padding-left: 10px;
             font-size: 12px;
             position: relative;
         }
-        .triangle-icon:before{
+
+        .triangle-icon:before {
             content: "";
             display: block;
             position: absolute;
@@ -321,6 +324,10 @@
 
         .long-wrapper.open {
             max-height: none;
+        }
+
+        .long-wrapper.open .long-wrapper-items {
+            padding-bottom: 56px;
         }
 
         .layer {
@@ -395,15 +402,22 @@
         #form-report {
             width: 300px;
         }
-        .panel{
+
+        .panel {
             margin-bottom: 10px;
             border-radius: 4px;
         }
-        .panel_tab .panel-head{
+
+        .panel_tab .panel-head {
             color: #254099;
             text-align: left;
         }
-        .panel_tab .panel-head[aria-expanded]:before{
+
+        .panel_tab .panel-head[aria-expanded=false] {
+            border-radius: 4px;
+        }
+
+        .panel_tab .panel-head[aria-expanded]:before {
             position: absolute;
             right: 20px;
             top: 7px;
@@ -413,10 +427,12 @@
             display: block;
             color: #254099;
         }
-        .panel_tab .panel-head[aria-expanded=false]:before{
+
+        .panel_tab .panel-head[aria-expanded=false]:before {
             content: "\2b";
         }
-        .panel-head{
+
+        .panel-head {
             border: 1px solid #dedede;
             color: #000;
             background-color: #f5f5f5;
@@ -425,31 +441,101 @@
             text-align: center;
             padding: 10px 15px;
         }
-        .panel-content{
+
+        .panel-content {
             border: 1px solid #dedede;
             padding-bottom: 5px;
         }
-        .panel-content-row{
+
+        .panel-content-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 15px;
             min-height: 30px;
         }
-        .panel-content-col{
+
+        .panel-content-col {
             display: inline-block;
+            width: 100%;
+            text-align: left;
         }
-        .panel-content-col b{
+
+        .panel-content-col b {
             font-size: 12px;
         }
-        .panel-content-col a{
+
+        .panel-content-col a {
             font-size: 12px;
             text-decoration: underline;
         }
-        .panel-content-col-small{
+
+        .panel-content-col-small {
             width: 30%;
         }
-        .panel-content-col-big{
+
+        .panel-content-col-big {
+            width: 70%;
+        }
+
+        .corners {
+            margin: 20px 0;
+            border: 1px solid #c5c9e2;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #F8F9FC;
+            font-size: 12px;
+        }
+
+        tbody {
+            text-align: center;
+        }
+
+        td {
+            outline: 1px solid #ddd;
+            padding: 6px;
+        }
+
+        table > thead > tr > th {
+            border-bottom: 2px solid #ddd;
+            padding: 6px;
+        }
+
+        .review {
+            display: flex;
+            margin: 12px 0;
+            line-height: 20px;
+        }
+
+        .review-date {
+            font-size: 12px;
+        }
+
+        .review-score {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .review-col {
+            padding: 0 6px;
+        }
+
+        .review-col-left {
+            text-align: center;
+            width: 30%;
+        }
+
+        .review-link a {
+            font-size: inherit;
+        }
+
+        .review-col-right {
             width: 70%;
         }
     </style>
@@ -589,7 +675,7 @@
                 </span>
             </div>
             <div class="long-wrapper" [class]="moreOpen ? 'long-wrapper open' : 'long-wrapper'">
-                <div>
+                <div class="long-wrapper-items">
                     <div class="description-item">
                         <span class="i-title">Philips 7900 series 49PUS7909/12 TV 124.5 cm (49") 4K Ultra HD 3D Smart TV Wi-Fi Black</span>
                         <span>:</span>
@@ -654,37 +740,44 @@
             <div class="panel-content">
                 <div class="panel-content-row">
                     <div class="panel-content-col panel-content-col-big">
-                        <a href="https://data.icecat.biz/xml_s3/xml_server3.cgi?prod_id=49PUS7909%2F12;vendor=Philips;lang=EN;output=productxml"   target="_blank">
+                        <a href="https://data.icecat.biz/xml_s3/xml_server3.cgi?prod_id=49PUS7909%2F12;vendor=Philips;lang=EN;output=productxml"
+                           target="_blank">
                             XML product data for Philips 49PUS7909/12
                         </a>
                     </div>
                     <div class="panel-content-col panel-content-col-small">
-                        <a href="https://iceclog.com/open-catalog-interface-oci-open-icecat-xml-and-full-icecat-xml-repositories/" target="_blank" class="media-pdf">XML doc</a>
+                        <a href="https://iceclog.com/open-catalog-interface-oci-open-icecat-xml-and-full-icecat-xml-repositories/"
+                           target="_blank" class="media-pdf">XML doc</a>
                     </div>
                 </div>
                 <div class="panel-content-row">
                     <div class="panel-content-col panel-content-col-big">
-                        <a href="https://live.icecat.biz/api/?shopname=openIcecat-json&lang=en&content=&icecat_id=24417380"   target="_blank">
+                        <a href="https://live.icecat.biz/api/?shopname=openIcecat-json&lang=en&content=&icecat_id=24417380"
+                           target="_blank">
                             JSON product data for Philips 49PUS7909/12
                         </a>
                     </div>
                     <div class="panel-content-col panel-content-col-small">
-                        <a href="/forum/getAttachment/?attachment_filename=6839" target="_blank" class="media-pdf">JSON DOC</a>
+                        <a href="/forum/getAttachment/?attachment_filename=6839" target="_blank" class="media-pdf">JSON
+                            DOC</a>
                     </div>
                 </div>
                 <div class="panel-content-row">
                     <div class="panel-content-col panel-content-col-big">
-                        <a href="http://prf.icecat.biz/?shopname=openIcecat-url&smi=product&product_id=24417380&vendor=Philips&prod_id=49PUS7909%2F12&lang=en"   target="_blank">
+                        <a href="http://prf.icecat.biz/?shopname=openIcecat-url&smi=product&product_id=24417380&vendor=Philips&prod_id=49PUS7909%2F12&lang=en"
+                           target="_blank">
                             URL Product data for Philips 49PUS7909/12
                         </a>
                     </div>
                     <div class="panel-content-col panel-content-col-small">
-                        <a href="https://iceclog.com/icecat-url-import-implementation-notes/" target="_blank" class="media-pdf">URL DOC</a>
+                        <a href="https://iceclog.com/icecat-url-import-implementation-notes/" target="_blank"
+                           class="media-pdf">URL DOC</a>
                     </div>
                 </div>
                 <div class="panel-content-row">
                     <div class="panel-content-col panel-content-col-big">
-                        <a href="https://data.icecat.biz/xml_s3/xml_server3.cgi?prod_id=49PUS7909%2F12;vendor=Philips;lang=EN;output=productxml"   target="_blank">
+                        <a href="https://data.icecat.biz/xml_s3/xml_server3.cgi?prod_id=49PUS7909%2F12;vendor=Philips;lang=EN;output=productxml"
+                           target="_blank">
                             XML product data for Philips 49PUS7909/12
                         </a>
                     </div>
@@ -694,41 +787,125 @@
                 </div>
                 <div class="panel-content-row">
                     <div class="panel-content-col">
-                        <a class="triangle-icon" target="_blank" href="http://www.iceclog.com/icecat-add-ons-for-popular-solutions-and-implementation-partners/">Icecat Add-ons</a>
+                        <a class="triangle-icon" target="_blank"
+                           href="http://www.iceclog.com/icecat-add-ons-for-popular-solutions-and-implementation-partners/">Icecat
+                            Add-ons</a>
                     </div>
                 </div>
                 <div class="panel-content-row">
                     <div class="panel-content-col">
                         <div>
-                            <a class="triangle-icon" target="_blank" href="https://icecat.co.uk/en/myIcecat/#my_downloads">Download the <b>free</b> Open Icecat data-sheets</a>
+                            <a class="triangle-icon" target="_blank"
+                               href="https://icecat.co.uk/en/myIcecat/#my_downloads">Download the <b>free</b> Open
+                                Icecat data-sheets</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="panel panel_tab">
-            <amp-accordion animate>
-                <section>
-                    <header class="panel-head">
-                        Video
-                    </header>
-                    <div class="panel-content">
-                        <amp-video controls
-                                   width="320"
-                                   height="200"
-                                   poster="https://objects.icecat.biz/objects/preview/24417380_224212259_preview.png"
-                                   layout="responsive">
-                            <source src="https://objects.icecat.biz/objects/24417380_224212259.mp4"
-                                    type="video/mp4" />
-                            <div fallback>
-                                <p>This browser does not support the video element.</p>
+        <amp-accordion expand-single-section animate>
+            <section class="panel panel_tab">
+                <header class="panel-head">
+                    Video
+                </header>
+                <div class="panel-content">
+                    <amp-video controls
+                               width="320"
+                               height="200"
+                               poster="https://objects.icecat.biz/objects/preview/24417380_224212259_preview.png"
+                               layout="responsive">
+                        <source src="https://objects.icecat.biz/objects/24417380_224212259.mp4"
+                                type="video/mp4"/>
+                        <div fallback>
+                            <p>This browser does not support the video element.</p>
+                        </div>
+                    </amp-video>
+                </div>
+            </section>
+            <section class="panel panel_tab">
+                <header class="panel-head">
+                    Reviews
+                </header>
+                <div class="panel-content">
+                    <div class="panel-content-row">
+                        <div class="panel-content-col">
+                            <div class="reviews">
+                                <div class="review">
+                                    <div class="review-col review-col-left">
+                                        <a href="http://www.testseek.co.uk/home_electronics/tv/lcd_tvs/philips_49pus7909-p-d0c99fc9-59ee-3795-0373-52e8fb014cc5.html">
+                                            <img alt="Reviews" src="https://images.icecat.biz/img/review/testseek.png">
+                                        </a>
+                                        <div class="review-date">Updated:<br>2015-02-19 02:57:39</div>
+                                        <div class="review-score">Average rating : 71%</div>
+                                    </div>
+                                    <div class="review-col review-col-right">
+                                        <div class="review-text">
+                                            Uk has collected 7 expert reviews for Philips 7900 series
+                                            49PUS7909/12 TV 124.5 cm (49") 4K Ultra HD 3D Smart TV Wi-Fi Black and
+                                            the average expert rating is 71 of 100. The average score reflects
+                                            the expert community’s
+                                            view on this product. Click below and use Uk to see all ratings, product
+                                            awards and conclusions.
+                                        </div>
+                                        <div class="review-link">
+                                            <a href="http://www.testseek.co.uk/home_electronics/tv/lcd_tvs/philips_49pus7909-p-d0c99fc9-59ee-3795-0373-52e8fb014cc5.html">
+                                                Read the full review
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </amp-video>
+                        </div>
                     </div>
-                </section>
-            </amp-accordion>
-        </div>
-<!--        <a role="button" tabindex="10" on="tap:reportMistake.open">Report</a>-->
+                </div>
+            </section>
+            <section class="panel panel_tab">
+                <header class="panel-head">
+                    Specs
+                </header>
+                <div class="panel-content">
+
+                </div>
+            </section>
+            <section class="panel panel_tab">
+                <header class="panel-head">
+                    Distributors
+                </header>
+                <div class="panel-content">
+                    <div class="panel-content-row">
+                        <div class="panel-content-col">
+                            <div class="corners">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            Country
+                                        </th>
+                                        <th>
+                                            Distributor
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <amp-img
+                                                    src="https://icecat.co.uk/themes/transitional/images/flags/Portugal.jpg"
+                                                    width="16"
+                                                    height="12">
+                                            </amp-img>
+                                        </td>
+                                        <td>1 distributor(s)</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </amp-accordion>
+        <!--        <a role="button" tabindex="10" on="tap:reportMistake.open">Report</a>-->
     </section>
 </main>
 
