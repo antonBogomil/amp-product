@@ -19,10 +19,11 @@
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-social-share"
             src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-
+    <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
     <style amp-boilerplate>body {
         -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
         -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
@@ -223,8 +224,7 @@
         }
 
         main {
-            margin-top: 50px;
-            padding: 0 10px;
+            padding: 40px 10px;
         }
 
         .product-header {
@@ -297,6 +297,21 @@
             width: 20px;
             height: 20px;
         }
+        .triangle-icon{
+            padding-left: 10px;
+            font-size: 12px;
+            position: relative;
+        }
+        .triangle-icon:before{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 1px;
+            left: 0;
+            width: 8px;
+            height: 13px;
+            background: url(sprites2.png) -256px 0 no-repeat;
+        }
 
         .long-wrapper {
             position: relative;
@@ -312,7 +327,7 @@
             position: absolute;
             background-color: white;
             opacity: 0.7;
-            height: 6em;
+            height: 5.4em;
             width: 100%;
             left: 0;
             bottom: 4em;
@@ -381,12 +396,25 @@
             width: 300px;
         }
         .panel{
-            margin-bottom: 20px;
-            background-color: #fff;
-            border: 1px solid transparent;
+            margin-bottom: 10px;
             border-radius: 4px;
-            -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        }
+        .panel_tab .panel-head{
+            color: #254099;
+            text-align: left;
+        }
+        .panel_tab .panel-head[aria-expanded]:before{
+            position: absolute;
+            right: 20px;
+            top: 7px;
+            font-size: 20px;
+            font-weight: bold;
+            content: "\2212";
+            display: block;
+            color: #254099;
+        }
+        .panel_tab .panel-head[aria-expanded=false]:before{
+            content: "\2b";
         }
         .panel-head{
             border: 1px solid #dedede;
@@ -400,6 +428,29 @@
         .panel-content{
             border: 1px solid #dedede;
             padding-bottom: 5px;
+        }
+        .panel-content-row{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            min-height: 30px;
+        }
+        .panel-content-col{
+            display: inline-block;
+        }
+        .panel-content-col b{
+            font-size: 12px;
+        }
+        .panel-content-col a{
+            font-size: 12px;
+            text-decoration: underline;
+        }
+        .panel-content-col-small{
+            width: 30%;
+        }
+        .panel-content-col-big{
+            width: 70%;
         }
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
@@ -597,31 +648,87 @@
             </div>
         </div>
     </section>
-    <section class="product-embed">
-        <div>
-            <div class="panel">
-                <div class="panel-head">Embed the product datasheet into your content.</div>
-                <div class="panel-content">
-                    <div class="panel-content-row">
-                        <div class="panel-content-col">
-
-                        </div>
-                        <div class="panel-content-col">
-
-                        </div>
+    <section class="product-tabs">
+        <div class="panel">
+            <div class="panel-head">Embed the product datasheet into your content.</div>
+            <div class="panel-content">
+                <div class="panel-content-row">
+                    <div class="panel-content-col panel-content-col-big">
+                        <a href="https://data.icecat.biz/xml_s3/xml_server3.cgi?prod_id=49PUS7909%2F12;vendor=Philips;lang=EN;output=productxml"   target="_blank">
+                            XML product data for Philips 49PUS7909/12
+                        </a>
                     </div>
-                    <div class="panel-content-row">
-                        <div class="panel-content-col">
-
-                        </div>
-                        <div class="panel-content-col">
-
+                    <div class="panel-content-col panel-content-col-small">
+                        <a href="https://iceclog.com/open-catalog-interface-oci-open-icecat-xml-and-full-icecat-xml-repositories/" target="_blank" class="media-pdf">XML doc</a>
+                    </div>
+                </div>
+                <div class="panel-content-row">
+                    <div class="panel-content-col panel-content-col-big">
+                        <a href="https://live.icecat.biz/api/?shopname=openIcecat-json&lang=en&content=&icecat_id=24417380"   target="_blank">
+                            JSON product data for Philips 49PUS7909/12
+                        </a>
+                    </div>
+                    <div class="panel-content-col panel-content-col-small">
+                        <a href="/forum/getAttachment/?attachment_filename=6839" target="_blank" class="media-pdf">JSON DOC</a>
+                    </div>
+                </div>
+                <div class="panel-content-row">
+                    <div class="panel-content-col panel-content-col-big">
+                        <a href="http://prf.icecat.biz/?shopname=openIcecat-url&smi=product&product_id=24417380&vendor=Philips&prod_id=49PUS7909%2F12&lang=en"   target="_blank">
+                            URL Product data for Philips 49PUS7909/12
+                        </a>
+                    </div>
+                    <div class="panel-content-col panel-content-col-small">
+                        <a href="https://iceclog.com/icecat-url-import-implementation-notes/" target="_blank" class="media-pdf">URL DOC</a>
+                    </div>
+                </div>
+                <div class="panel-content-row">
+                    <div class="panel-content-col panel-content-col-big">
+                        <a href="https://data.icecat.biz/xml_s3/xml_server3.cgi?prod_id=49PUS7909%2F12;vendor=Philips;lang=EN;output=productxml"   target="_blank">
+                            XML product data for Philips 49PUS7909/12
+                        </a>
+                    </div>
+                    <div class="panel-content-col panel-content-col-small">
+                        <a href="https://iceclog.com/icecat-csv/" target="_blank" class="media-pdf">CSV DOC</a>
+                    </div>
+                </div>
+                <div class="panel-content-row">
+                    <div class="panel-content-col">
+                        <a class="triangle-icon" target="_blank" href="http://www.iceclog.com/icecat-add-ons-for-popular-solutions-and-implementation-partners/">Icecat Add-ons</a>
+                    </div>
+                </div>
+                <div class="panel-content-row">
+                    <div class="panel-content-col">
+                        <div>
+                            <a class="triangle-icon" target="_blank" href="https://icecat.co.uk/en/myIcecat/#my_downloads">Download the <b>free</b> Open Icecat data-sheets</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <a role="button" tabindex="10" on="tap:reportMistake.open">Report</a>
+        <div class="panel panel_tab">
+            <amp-accordion animate>
+                <section>
+                    <header class="panel-head">
+                        Video
+                    </header>
+                    <div class="panel-content">
+                        <amp-video controls
+                                   width="320"
+                                   height="200"
+                                   poster="https://objects.icecat.biz/objects/preview/24417380_224212259_preview.png"
+                                   layout="responsive">
+                            <source src="https://objects.icecat.biz/objects/24417380_224212259.mp4"
+                                    type="video/mp4" />
+                            <div fallback>
+                                <p>This browser does not support the video element.</p>
+                            </div>
+                        </amp-video>
+                    </div>
+                </section>
+            </amp-accordion>
+        </div>
+<!--        <a role="button" tabindex="10" on="tap:reportMistake.open">Report</a>-->
     </section>
 </main>
 
