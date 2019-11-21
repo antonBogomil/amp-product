@@ -95,6 +95,82 @@
             color: #254099;
         }
 
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-image: url("sprites.png");
+        }
+
+        .icon2 {
+            position: relative;
+            padding: 10px 24px 10px;
+            display: inline-block;
+        }
+
+        .icon2:before {
+            position: absolute;
+            content: '';
+            display: inline-block;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: url("sprites2.png");
+        }
+
+        .icon-header_search {
+            left: 8px;
+            top: 0;
+            position: absolute;
+            background-position: -34px -13px;
+        }
+
+        .icon-header_filter {
+            right: 8px;
+            top: 0;
+            position: absolute;
+            background-position: -75px -10px;
+        }
+
+        .icon_menu {
+            background-position: -10px -12px;
+        }
+
+        .icon_close {
+            background-position: -31px -33px;
+        }
+
+        .icon-header_home {
+            background-position: -8px -34px;
+        }
+
+        .icon-no{
+            display: inline-block;
+            padding: 0;
+            width: 12px;
+            height: 12px;
+            overflow: hidden;
+        }
+        .icon-no:before {
+            background-position: -127px -30px;
+
+        }
+
+        .icon2-pdf:before {
+            background-position: -30px -30px;
+        }
+
+        .icon-triangle {
+            padding-left: 10px;
+        }
+
+        .icon-triangle:before {
+            width: 8px;
+            height: 13px;
+            background-position: -256px 0;
+        }
+
         .lightbox {
             background: white;
             width: 100%;
@@ -150,6 +226,7 @@
             background-color: #fff;
             border-color: #ccc;
         }
+
         .form-modal {
             width: 300px;
             margin: auto;
@@ -167,39 +244,6 @@
         .form-container {
             margin-bottom: 20px;
             text-align: center;
-        }
-
-
-        .icon-header {
-            width: 20px;
-            height: 20px;
-            display: inline-block;
-            background-repeat: no-repeat;
-            background-image: url("sprites.png");
-        }
-
-        .icon-header_search {
-            left: 8px;
-            top: 0;
-            position: absolute;
-            background-position: -34px -13px;
-        }
-
-        .icon-header_filter {
-            right: 8px;
-            top: 0;
-            position: absolute;
-            background-position: -75px -10px;
-        }
-
-        .icon_menu {
-            background-position: -10px -12px;
-        }
-        .icon_close{
-            background-position: -31px -33px;
-        }
-        .icon-header_home {
-            background-position: -8px -34px;
         }
 
         .product-info {
@@ -230,6 +274,7 @@
         .menu-item_separeted {
             border-top: 1px solid #b3b3b3;
         }
+
         .modal {
             position: fixed;
             width: 100%;
@@ -244,12 +289,13 @@
             overflow-y: scroll;
         }
 
-        .btn-close-modal{
+        .btn-close-modal {
             position: absolute;
             right: 20px;
             top: 20px;
             font-size: 25px;
         }
+
         .modal.open {
             display: block;
         }
@@ -311,39 +357,6 @@
         .description-item .i-title {
             font-weight: bold;
             border-bottom: 1px dashed black;
-        }
-
-        .media-pdf {
-            position: relative;
-            padding: 10px 24px 10px;
-            display: inline-block;
-        }
-
-        .media-pdf:before {
-            background: url("sprites2.png") no-repeat -30px -30px;
-            position: absolute;
-            content: '';
-            display: inline-block;
-            left: 0;
-            width: 20px;
-            height: 20px;
-        }
-
-        .triangle-icon {
-            padding-left: 10px;
-            font-size: 12px;
-            position: relative;
-        }
-
-        .triangle-icon:before {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 1px;
-            left: 0;
-            width: 8px;
-            height: 13px;
-            background: url(sprites2.png) -256px 0 no-repeat;
         }
 
         .long-wrapper {
@@ -568,32 +581,68 @@
         .review-col-right {
             width: 70%;
         }
-        .tables{
+
+        .tables {
             border-radius: 5px;
             border: 1px solid #c5c9e2;
-            margin:  0 12px;
+            margin: 0 12px;
         }
-        .thead{
+
+        .thead {
             background: #eef1fa;
             margin: 0;
             padding: 4px 0;
             font-weight: bold;
         }
-        .table .row{
+
+        .table .row {
             display: flex;
             margin: 6px 0;
         }
-        .table .cell{
+
+        .table .cell {
             width: 50%;
-            padding:  0 15px;
+            padding: 0 15px;
         }
-        .cell-mandatory:after{
+
+        .cell-mandatory:after {
             content: '*';
             margin-left: 4px;
             color: red;
         }
 
+        .card {
+            width: 100%;
+            display: flex;
+            margin: auto;
+            align-items: center;
+            justify-content: space-around;
+            position: relative;
+        }
+        .card-brand{
+            position: absolute;
+            top: 10px;
+            left: 0;
+        }
+        .card-row{
+            margin-bottom: 8px;
+        }
+        .card-left {
+            text-align: center;
+        }
+        .card-row span{
+            font-size: 12px;
+        }
+        .card-inner {
+            width: 50%;
+        }
 
+        .card-val {
+            font-weight: bold;
+        }
+
+
+        /*<!-- bbbottom -->*/
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 </head>
@@ -608,19 +657,20 @@
 </amp-state>
 <header class="header">
     <div class="header-left">
-        <span on="tap:location.open" tabindex="0" role="button" class="icon-header icon-header_home"></span>
+        <span on="tap:location.open" tabindex="0" role="button" class="icon icon-header_home"></span>
     </div>
     <div class="header-center">
         <form action-xhr="/amp/menu/location-change" method="post" class="form_search">
             <label class="search_label">
-                <i class="icon-header icon-header_search"></i>
+                <i class="icon icon-header_search"></i>
                 <input class="search_input"/>
-                <i class="icon-header icon-header_filter"></i>
+                <i class="icon icon-header_filter"></i>
             </label>
         </form>
     </div>
     <div class="header-right">
-        <span class="icon-header icon_menu " [class]="menuOpen? 'icon-header icon_close' :  'icon-header icon_menu '" role="button" tabindex="1"
+        <span class="icon icon_menu " [class]="menuOpen? 'icon icon_close' :  'icon icon_menu '" role="button"
+              tabindex="1"
               on="tap:AMP.setState({menuOpen: !menuOpen})">
         </span>
     </div>
@@ -711,7 +761,7 @@
                 </span>
             </div>
             <div class="description-item">
-                <a class="media media-pdf" target="_blank"
+                <a class="media icon2 icon2-pdf" target="_blank"
                    href="http://objects.icecat.biz/objects/mmo_24417380_1540334904_7842_1312.pdf">
                     EU Energy Label
                     (0,1MB)
@@ -801,7 +851,7 @@
                     </div>
                     <div class="panel-content-col panel-content-col-small">
                         <a href="https://iceclog.com/open-catalog-interface-oci-open-icecat-xml-and-full-icecat-xml-repositories/"
-                           target="_blank" class="media-pdf">XML doc</a>
+                           target="_blank" class="icon2 icon2-pdf">XML doc</a>
                     </div>
                 </div>
                 <div class="panel-content-row">
@@ -812,7 +862,8 @@
                         </a>
                     </div>
                     <div class="panel-content-col panel-content-col-small">
-                        <a href="/forum/getAttachment/?attachment_filename=6839" target="_blank" class="media-pdf">JSON
+                        <a href="/forum/getAttachment/?attachment_filename=6839" target="_blank"
+                           class="icon2 icon2-pdf">JSON
                             DOC</a>
                     </div>
                 </div>
@@ -825,7 +876,7 @@
                     </div>
                     <div class="panel-content-col panel-content-col-small">
                         <a href="https://iceclog.com/icecat-url-import-implementation-notes/" target="_blank"
-                           class="media-pdf">URL DOC</a>
+                           class="icon2 icon2-pdf">URL DOC</a>
                     </div>
                 </div>
                 <div class="panel-content-row">
@@ -836,12 +887,12 @@
                         </a>
                     </div>
                     <div class="panel-content-col panel-content-col-small">
-                        <a href="https://iceclog.com/icecat-csv/" target="_blank" class="media-pdf">CSV DOC</a>
+                        <a href="https://iceclog.com/icecat-csv/" target="_blank" class="icon2 icon2-pdf">CSV DOC</a>
                     </div>
                 </div>
                 <div class="panel-content-row">
                     <div class="panel-content-col">
-                        <a class="triangle-icon" target="_blank"
+                        <a class="icon2 icon-triangle" target="_blank"
                            href="http://www.iceclog.com/icecat-add-ons-for-popular-solutions-and-implementation-partners/">Icecat
                             Add-ons</a>
                     </div>
@@ -849,7 +900,7 @@
                 <div class="panel-content-row">
                     <div class="panel-content-col">
                         <div>
-                            <a class="triangle-icon" target="_blank"
+                            <a class="icon2 icon-triangle" target="_blank"
                                href="https://icecat.co.uk/en/myIcecat/#my_downloads">Download the <b>free</b> Open
                                 Icecat data-sheets</a>
                         </div>
@@ -887,7 +938,8 @@
                                 <div class="review">
                                     <div class="review-col review-col-left">
                                         <a href="http://www.testseek.co.uk/home_electronics/tv/lcd_tvs/philips_49pus7909-p-d0c99fc9-59ee-3795-0373-52e8fb014cc5.html">
-                                            <amp-img alt="Reviews" width="50" height="50" src="https://images.icecat.biz/img/review/testseek.png"></amp-img>
+                                            <amp-img alt="Reviews" width="50" height="50"
+                                                     src="https://images.icecat.biz/img/review/testseek.png"></amp-img>
                                         </a>
                                         <div class="review-date">Updated:<br>2015-02-19 02:57:39</div>
                                         <div class="review-score">Average rating: 71%</div>
@@ -913,7 +965,7 @@
                     </div>
                 </div>
             </section>
-            <section expanded class="panel panel_tab">
+            <section class="panel panel_tab">
                 <header class="panel-head">
                     Specs
                 </header>
@@ -968,7 +1020,6 @@
                     </div>
 
 
-
                 </div>
             </section>
             <section class="panel panel_tab">
@@ -1008,6 +1059,49 @@
                     </div>
                 </div>
             </section>
+            <section expanded class="panel panel_tab">
+                <header class="panel-head">
+                    Recommended products
+                </header>
+                <div class="panel-content">
+                    <div class="panel-content-row">
+                        <div class="panel-content-col">
+                            <div class="card">
+                                <div class="card-brand">
+                                    <amp-img width="22px" height="22px"
+                                             src="https://images.icecat.biz/img/brand/thumb/1_91e0e5b25690437cb026012c624a00ad.jpg"></amp-img>
+                                </div>
+                                <div class="card-inner card-left">
+                                    <amp-img width="60px" height="60px"
+                                             src="https://images.icecat.biz/img/gallery_lows/37646073_3080345766.jpg"></amp-img>
+                                </div>
+                                <div class="card-inner card-right">
+                                    <div class="card-row">
+                                        <span class="card-title">Product: </span>
+                                        <span class="card-val">Spectre x360 - 13-aw0205tu</span>
+                                    </div>
+                                    <div class="card-row">
+                                        <span class="card-title">Product code: </span>
+                                        <span class="card-val">9JB00PA</span>
+                                    </div>
+                                    <div class="card-row">
+                                        <span class="card-title">Stock: </span><i class="icon2 icon-no"></i>
+                                    </div>
+                                    <div class="card-row">
+                                        <span>
+                                            Price from:
+                                        </span>
+                                        <span class="card-val">
+                                            0,00(excl. VAT)
+                                            0,00 (incl. VAT)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </amp-accordion>
         <!--        <a role="button" tabindex="10" on="tap:reportMistake.open">Report</a>-->
     </section>
@@ -1033,7 +1127,8 @@
         <li class="menu-item">
             <div class="social">
                 <amp-social-share width="40" height="40" type="twitter"></amp-social-share>
-                <amp-social-share width="40" height="40" type="facebook" data-param-app_id="254325784911610"></amp-social-share>
+                <amp-social-share width="40" height="40" type="facebook"
+                                  data-param-app_id="254325784911610"></amp-social-share>
                 <amp-social-share width="40" height="40" type="linkedin"></amp-social-share>
                 <!--                <a href="https://www.youtube.com/channel/UCRUJeX0Gxdn4gRmeQeaC2Bg" title="Youtube">-->
                 <!--                    <img id="YoutubeImg" alt="Youtube" src="https://ws.sharethis.com/images/youtube_16.png">-->
@@ -1052,7 +1147,7 @@
 <amp-lightbox id="location" layout="nodisplay">
     <div class="lightbox">
         <span class="btn-close-modal" on="tap:location.close" tabindex="0" role="button">x</span>
-        <form class="form-modal"  method="post" action-xhr="/">
+        <form class="form-modal" method="post" action-xhr="/">
             <div class="form-container">
                 <p>Choose country:</p>
                 <select class="select" name="countryCode" id="country-select">
