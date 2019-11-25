@@ -25,6 +25,7 @@
     <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
     <style amp-boilerplate>body {
         -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
         -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
@@ -151,6 +152,7 @@
             width: 12px;
             height: 12px;
             overflow: hidden;
+            vertical-align: middle;
         }
         .icon-no:before {
             background-position: -127px -30px;
@@ -622,7 +624,7 @@
         .card-brand{
             position: absolute;
             top: 10px;
-            left: 0;
+            left: 10px;
         }
         .card-row{
             margin-bottom: 8px;
@@ -640,7 +642,19 @@
         .card-val {
             font-weight: bold;
         }
-
+        .card-val_price{
+            width: 100px;
+        }
+        .rtb-wrapper{
+            margin-top: 15px;
+        }
+        .rtb-title{
+            font-weight: 700;
+        }
+        .rtb-r{
+            float: right;
+            margin-left: 10px;
+        }
 
         /*<!-- bbbottom -->*/
     </style>
@@ -1059,47 +1073,123 @@
                     </div>
                 </div>
             </section>
-            <section expanded class="panel panel_tab">
+            <section class="panel panel_tab">
                 <header class="panel-head">
                     Recommended products
                 </header>
                 <div class="panel-content">
-                    <div class="panel-content-row">
-                        <div class="panel-content-col">
-                            <div class="card">
-                                <div class="card-brand">
-                                    <amp-img width="22px" height="22px"
-                                             src="https://images.icecat.biz/img/brand/thumb/1_91e0e5b25690437cb026012c624a00ad.jpg"></amp-img>
+                    <amp-carousel height="240" controls type="slides">
+                        <div class="card">
+                            <div class="card-brand">
+                                <amp-img width="22px" height="22px"
+                                         src="https://images.icecat.biz/img/brand/thumb/1_91e0e5b25690437cb026012c624a00ad.jpg"></amp-img>
+                            </div>
+                            <div class="card-inner card-left">
+                                <amp-img width="60px" height="60px"
+                                         src="https://images.icecat.biz/img/gallery_lows/37646073_3080345766.jpg"></amp-img>
+                            </div>
+                            <div class="card-inner card-right">
+                                <div class="card-row">
+                                    <span class="card-title">Product: </span>
+                                    <span class="card-val">Spectre x360 - 13-aw0205tu</span>
                                 </div>
-                                <div class="card-inner card-left">
-                                    <amp-img width="60px" height="60px"
-                                             src="https://images.icecat.biz/img/gallery_lows/37646073_3080345766.jpg"></amp-img>
+                                <div class="card-row">
+                                    <span class="card-title">Product code: </span>
+                                    <span class="card-val">9JB00PA</span>
                                 </div>
-                                <div class="card-inner card-right">
-                                    <div class="card-row">
-                                        <span class="card-title">Product: </span>
-                                        <span class="card-val">Spectre x360 - 13-aw0205tu</span>
-                                    </div>
-                                    <div class="card-row">
-                                        <span class="card-title">Product code: </span>
-                                        <span class="card-val">9JB00PA</span>
-                                    </div>
-                                    <div class="card-row">
-                                        <span class="card-title">Stock: </span><i class="icon2 icon-no"></i>
-                                    </div>
-                                    <div class="card-row">
+                                <div class="card-row">
+                                    <span class="card-title">Stock: </span><i class="icon2 icon-no"></i>
+                                </div>
+                                <div class="card-row">
                                         <span>
                                             Price from:
                                         </span>
-                                        <span class="card-val">
+                                    <span class="card-val card-val_price">
                                             0,00(excl. VAT)
                                             0,00 (incl. VAT)
                                         </span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="card">
+                            <div class="card-brand">
+                                <amp-img width="22px" height="22px"
+                                         src="https://images.icecat.biz/img/brand/thumb/1_91e0e5b25690437cb026012c624a00ad.jpg"></amp-img>
+                            </div>
+                            <div class="card-inner card-left">
+                                <amp-img width="60px" height="60px"
+                                         src="https://images.icecat.biz/img/gallery_lows/37646073_3080345766.jpg"></amp-img>
+                            </div>
+                            <div class="card-inner card-right">
+                                <div class="card-row">
+                                    <span class="card-title">Product: </span>
+                                    <span class="card-val">Spectre x360 - 13-aw0205tu</span>
+                                </div>
+                                <div class="card-row">
+                                    <span class="card-title">Product code: </span>
+                                    <span class="card-val">9JB00PA</span>
+                                </div>
+                                <div class="card-row">
+                                    <span class="card-title">Stock: </span><i class="icon2 icon-no"></i>
+                                </div>
+                                <div class="card-row">
+                                        <span>
+                                            Price from:
+                                        </span>
+                                    <span class="card-val card-val_price">
+                                            0,00(excl. VAT)
+                                            0,00 (incl. VAT)
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                    </amp-carousel>
+                </div>
+            </section>
+            <section class="panel panel_tab">
+                <header class="panel-head">
+                    Reasons to buy
+                </header>
+                <div class="panel-content">
+                   <div class="panel-content-row">
+                       <div class="panel-content-col">
+                           <div class="rtb-wrapper">
+                               <div class="rtb-wrapper-img rtb-r">
+                                   <amp-img
+                                           width="150"
+                                           height="150"
+                                           src="https://images.icecat.biz/img/feature_logo/76-2987.png">
+                                   </amp-img>
+                               </div>
+                               <div class="rtb-wrapper-text">
+                                    <div class="rtb-title">Intel® Wireless Display (Intel® WiDi)</div>
+                                   <div class="rtn-text">
+                                       <p><b>Connect to TV Wirelessly</b><br>With a few clicks, Intel® Wireless Display
+                                           expands your screen’s potential, linking mobile devices and laptops to
+                                           TV screens wirelessly. Stream family favorites and view personal
+                                           experiences while turning your device’s small screen into a superior,
+                                           sharable experience.
+                                       </p>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                </div>
+            </section>
+            <section class="panel panel_tab">
+                <header class="panel-head">
+                    Story
+                </header>
+                <div class="panel-content">
+                    <amp-iframe
+                            width="300"
+                            height="400"
+                            layout="responsive"
+                            sandbox="allow-scripts allow-same-origin"
+                            src="https://objects.icecat.biz/live_htmls/57ba6ffa491600877daec69a40ab95db/index.html?shopname=antonB&product_id=61148303"
+                    >
+                    </amp-iframe>
                 </div>
             </section>
         </amp-accordion>
